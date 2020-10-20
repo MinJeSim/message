@@ -19,7 +19,7 @@ public class PolicyHandler {
 
     @StreamListener(KafkaProcessor.INPUT)
     public void onStringEventListener(@Payload String eventString) {
-        System.out.println("event###! : " + eventString);
+//        System.out.println("event###! : " + eventString);
 
     }
 
