@@ -2,6 +2,8 @@ package mileage;
 
 import javax.persistence.*;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 
 @Entity
@@ -9,7 +11,7 @@ import java.util.List;
 public class Message {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private Long memberId;
     private String phoneNo;
@@ -20,9 +22,19 @@ public class Message {
     public void onPostPersist(){
         MsgSent msgSent = new MsgSent();
         BeanUtils.copyProperties(this, msgSent);
+
+        if (phoneNo.length() == 11) {
+            msgSent.setMessageStatus("SUCCESS"); // SUCCESS / FAIL
+            msgSent.setMessageContents("MESSAGE SEND SUCCESS");
+        } else {
+            msgSent.setMessageStatus("FAIL");
+            msgSent.setMessageContents("MESSAGE SEND FAIL");
+        }
         msgSent.publishAfterCommit();
 
 
+
+        System.out.println("##### MESSAGE SENT");
     }
 
 
@@ -62,7 +74,6 @@ public class Message {
         this.messageStatus = messageStatus;
     }
 
-
-
-
 }
+
+

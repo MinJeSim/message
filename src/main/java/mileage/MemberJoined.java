@@ -15,6 +15,7 @@ public class MemberJoined extends AbstractEvent {
     public void setId(Long id) {
         this.id = id;
     }
+
     public Long getMemberId() {
         return memberId;
     }
@@ -22,13 +23,15 @@ public class MemberJoined extends AbstractEvent {
     public void setMemberId(Long memberId) {
         this.memberId = memberId;
     }
-    public String getMdnNo() {
+
+    public String getPhoneNo() {
         return phoneNo;
     }
 
-    public void setMdnNo(String phoneNo) {
+    public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
     }
+
     public String getNickname() {
         return nickname;
     }
@@ -36,6 +39,7 @@ public class MemberJoined extends AbstractEvent {
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
+
     public String getMemberStatus() {
         return memberStatus;
     }
