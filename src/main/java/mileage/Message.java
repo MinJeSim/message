@@ -11,7 +11,8 @@ import java.util.List;
 public class Message {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+//    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private Long memberId;
     private String phoneNo;
