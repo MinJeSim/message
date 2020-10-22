@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    _PROJECT_NAME: "message"
+    _PROJECT_NAME: "skccuser10-message"
 
 phases:
   install:
